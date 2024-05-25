@@ -1,0 +1,16 @@
+{
+  "short_name": "euros-sweepstakes-dashboard",
+  "name": "A dashboard to display the Euros stats",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "235x235",
+      "type": "image/png"
+    }
+  ],
+  "version": "0.0.9",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
