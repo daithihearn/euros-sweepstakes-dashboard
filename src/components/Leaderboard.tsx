@@ -26,7 +26,7 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ scores }) => {
                 <TableHead>
                     <TableRow>
                         <TableCell>Name</TableCell>
-                        <TableCell>Selection</TableCell>
+                        <TableCell>Teams</TableCell>
                         <TableCell>Score</TableCell>
                     </TableRow>
                 </TableHead>
