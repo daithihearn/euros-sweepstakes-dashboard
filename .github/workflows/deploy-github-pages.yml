@@ -32,7 +32,9 @@ jobs:
                   id=$(docker create react-app)
                   docker cp $id:/app/build ./build
                   docker rm -v $id
-                  cp CNAME ./build/CNAME  # Add this line to copy the CNAME file to the build directory
+
+            - name: Create CNAME File
+              run: echo '${{ secrets.CNAME }}' > ./build/CNAME
 
             - name: Deploy to GitHub Pages
               uses: peaceiris/actions-gh-pages@v3
