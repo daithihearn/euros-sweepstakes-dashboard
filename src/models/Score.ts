@@ -1,5 +1,6 @@
 export interface Team {
     country: string
+    odds: string
 }
 export interface Score {
     name: string
