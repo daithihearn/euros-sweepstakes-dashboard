@@ -1,10 +1,14 @@
 export interface Team {
     country: string
-    flag: string
-    score: number
 }
 export interface Score {
     name: string
-    teams: Team[]
+    result: Result
     totalScore: number
+}
+export interface Result {
+    winner: Team
+    runnerUp: Team
+    thirdPlace: Team
+    fourthPlace: Team
 }
