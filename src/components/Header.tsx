@@ -3,7 +3,11 @@ import HeaderImage from "../assets/images/Euros Header.jpeg"
 
 const Header = () => {
     return (
-        <Card>
+        <Card
+            sx={{
+                borderRadius: { xs: 0, sm: 2 },
+                boxShadow: { xs: 0, sm: 2 },
+            }}>
             <CardMedia
                 component="img"
                 alt="Euro 2024 Sweepstakes"

@@ -8,7 +8,11 @@ interface ResultProps {
 
 const Results: React.FC<ResultProps> = ({ result }) => {
     return (
-        <Card>
+        <Card
+            sx={{
+                borderRadius: { xs: 0, sm: 2 },
+                boxShadow: { xs: 0, sm: 2 },
+            }}>
             <CardContent>
                 <Stack direction="column" spacing={2}>
                     <Team

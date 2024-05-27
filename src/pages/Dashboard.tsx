@@ -23,19 +23,19 @@ const DashboardContent: React.FC = () => {
                 sx={{
                     display: "flex",
                     flexDirection: "column",
-                    p: 1,
+                    p: { xs: 0, sm: 1 }, // No padding on extra small screens
                 }}>
-                <Container sx={{ p: 1 }}>
+                <Container sx={{ p: { xs: 0, sm: 1 } }}>
                     <Header />
                 </Container>
 
-                <Container>
-                    <Grid container spacing={1}>
-                        <Grid item xs={12} sm={9}>
+                <Container sx={{ p: { xs: 0, sm: 1 } }}>
+                    <Grid container spacing={{ xs: 0, sm: 1 }}>
+                        <Grid item xs={12} sm={9} sx={{ p: { xs: 0, sm: 1 } }}>
                             <Leaderboard scores={scores.data || []} />
                         </Grid>
 
-                        <Grid item xs={12} sm={3}>
+                        <Grid item xs={12} sm={3} sx={{ p: { xs: 0, sm: 1 } }}>
                             {res.data && <Results result={res.data} />}
                         </Grid>
                     </Grid>
