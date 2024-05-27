@@ -12,6 +12,7 @@ import {
     Tooltip,
 } from "@mui/material"
 import { Score } from "models/Score"
+import { getFlagByCountryName } from "helpers/flag"
 
 interface LeaderboardProps {
     scores: Score[]
@@ -53,22 +54,88 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ scores }) => {
                             </TableCell>
                             <TableCell>
                                 <Grid container spacing={1}>
-                                    {score.teams.map((team, teamIndex) => (
-                                        <Grid item xs={3} key={teamIndex}>
-                                            <Tooltip
-                                                title={`${team.country}: ${team.score}`}
-                                                arrow>
-                                                <Typography
-                                                    variant="h6"
-                                                    component="div"
-                                                    align="center"
-                                                    gutterBottom
-                                                    noWrap>
-                                                    {team.flag}
-                                                </Typography>
-                                            </Tooltip>
-                                        </Grid>
-                                    ))}
+                                    <Grid
+                                        item
+                                        xs={3}
+                                        key={score.result.winner.country}>
+                                        <Tooltip
+                                            title={`${score.result.winner.country}`}
+                                            arrow>
+                                            <Typography
+                                                variant="h6"
+                                                component="div"
+                                                align="center"
+                                                gutterBottom
+                                                noWrap>
+                                                {getFlagByCountryName(
+                                                    score.result.winner.country,
+                                                )}
+                                            </Typography>
+                                        </Tooltip>
+                                    </Grid>
+
+                                    <Grid
+                                        item
+                                        xs={3}
+                                        key={score.result.runnerUp.country}>
+                                        <Tooltip
+                                            title={`${score.result.runnerUp.country}`}
+                                            arrow>
+                                            <Typography
+                                                variant="h6"
+                                                component="div"
+                                                align="center"
+                                                gutterBottom
+                                                noWrap>
+                                                {getFlagByCountryName(
+                                                    score.result.runnerUp
+                                                        .country,
+                                                )}
+                                            </Typography>
+                                        </Tooltip>
+                                    </Grid>
+
+                                    <Grid
+                                        item
+                                        xs={3}
+                                        key={score.result.thirdPlace.country}>
+                                        <Tooltip
+                                            title={`${score.result.thirdPlace.country}`}
+                                            arrow>
+                                            <Typography
+                                                variant="h6"
+                                                component="div"
+                                                align="center"
+                                                gutterBottom
+                                                noWrap>
+                                                {getFlagByCountryName(
+                                                    score.result.thirdPlace
+                                                        .country,
+                                                )}
+                                            </Typography>
+                                        </Tooltip>
+                                    </Grid>
+
+                                    <Grid
+                                        item
+                                        xs={3}
+                                        key={score.result.fourthPlace.country}>
+                                        <Tooltip
+                                            title={`${score.result.fourthPlace.country}`}
+                                            arrow>
+                                            <Typography
+                                                variant="h6"
+                                                component="div"
+                                                align="center"
+                                                gutterBottom
+                                                noWrap>
+                                                {getFlagByCountryName(
+                                                    score.result.fourthPlace
+                                                        .country,
+                                                )}
+                                            </Typography>
+                                        </Tooltip>
+                                    </Grid>
                                 </Grid>
                             </TableCell>
                             <TableCell align="center">
