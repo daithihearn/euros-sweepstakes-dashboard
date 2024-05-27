@@ -1,12 +1,11 @@
 import React from "react"
 import Box from "@mui/material/Box"
-import Typography from "@mui/material/Typography"
-import Paper from "@mui/material/Paper"
-import { Container } from "@mui/material"
+import { Container, Grid } from "@mui/material"
 import { useScores } from "hooks/useScores"
 import Leaderboard from "components/Leaderboard"
 import Results from "components/Results"
 import { useResult } from "hooks/useResult"
+import Header from "components/Header"
 
 const DashboardContent: React.FC = () => {
     const scores = useScores(10000)
@@ -26,23 +25,20 @@ const DashboardContent: React.FC = () => {
                     flexDirection: "column",
                     p: 1,
                 }}>
-                <Container>
-                    <Typography
-                        variant="h1"
-                        component="h1"
-                        align="center"
-                        gutterBottom>
-                        Euros Sweepstakes
-                    </Typography>
+                <Container sx={{ p: 1 }}>
+                    <Header />
                 </Container>
 
-                {res.data && (
-                    <Container sx={{ p: 1 }}>
-                        <Results result={res.data} />
-                    </Container>
-                )}
-                <Container sx={{ p: 1 }}>
-                    <Leaderboard scores={scores.data || []} />
+                <Container>
+                    <Grid container spacing={1}>
+                        <Grid item xs={12} sm={9}>
+                            <Leaderboard scores={scores.data || []} />
+                        </Grid>
+
+                        <Grid item xs={12} sm={3}>
+                            {res.data && <Results result={res.data} />}
+                        </Grid>
+                    </Grid>
                 </Container>
             </Container>
         </Box>
