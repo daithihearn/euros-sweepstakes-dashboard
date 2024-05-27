@@ -53,7 +53,12 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ scores }) => {
     const sortedScores = scores.sort((a, b) => b.totalScore - a.totalScore)
 
     return (
-        <Card>
+        <Card
+            sx={{
+                borderRadius: { xs: 0, sm: 2 },
+                boxShadow: { xs: 0, sm: 2 },
+                p: { xs: 0, sm: 1 },
+            }}>
             <CardHeader
                 avatar={<Avatar src={Trophy} />}
                 title="Leaderboard"
@@ -67,6 +72,8 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ scores }) => {
                                 score.totalScore.valueOf(),
                                 darkMode,
                             ),
+                            borderRadius: 0,
+                            p: { xs: 0, sm: 1 },
                         }}
                         variant="outlined">
                         <LeaderBoardRowHeader
@@ -79,7 +86,8 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ scores }) => {
                             <Grid container>
                                 <Grid
                                     item
-                                    xs={3}
+                                    xs={12}
+                                    sm={3}
                                     key={score.result.winner.country}>
                                     <Team
                                         country={score.result.winner.country}
@@ -89,7 +97,8 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ scores }) => {
 
                                 <Grid
                                     item
-                                    xs={3}
+                                    xs={12}
+                                    sm={3}
                                     key={score.result.runnerUp.country}>
                                     <Team
                                         country={score.result.runnerUp.country}
@@ -99,7 +108,8 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ scores }) => {
 
                                 <Grid
                                     item
-                                    xs={3}
+                                    xs={12}
+                                    sm={3}
                                     key={score.result.thirdPlace.country}>
                                     <Team
                                         country={
@@ -111,7 +121,8 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ scores }) => {
 
                                 <Grid
                                     item
-                                    xs={3}
+                                    xs={12}
+                                    sm={3}
                                     key={score.result.fourthPlace.country}>
                                     <Team
                                         country={
