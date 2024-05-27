@@ -23,12 +23,12 @@ const Results: React.FC<ResultProps> = ({ result }) => {
             <Table>
                 <TableHead>
                     <TableRow>
-                        <TableCell style={{ width: "20%" }}>
+                        <TableCell>
                             <Typography variant="h3" component="div">
                                 Team
                             </Typography>
                         </TableCell>
-                        <TableCell align="center">
+                        <TableCell style={{ width: "20%" }} align="center">
                             <Typography variant="h3" component="div">
                                 Odds
                             </Typography>
