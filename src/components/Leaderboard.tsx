@@ -57,7 +57,7 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ scores }) => {
             <CardHeader
                 avatar={<Avatar src={Trophy} />}
                 title="Leaderboard"
-                subheader="*The bookies odds will be used until the final result"
+                subheader="*The bookies odds will be used until there is a result"
             />
             <CardContent>
                 {sortedScores.map(score => (
