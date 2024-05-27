@@ -26,19 +26,19 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ scores }) => {
         <TableContainer component={Paper}>
             <Table>
                 <TableHead>
-                    <TableRow style={{ backgroundColor: "#f5f5f5" }}>
+                    <TableRow>
                         <TableCell style={{ width: "20%" }}>
-                            <Typography variant="h6" component="div">
+                            <Typography variant="h3" component="div">
                                 Name
                             </Typography>
                         </TableCell>
                         <TableCell align="center">
-                            <Typography variant="h6" component="div">
+                            <Typography variant="h3" component="div">
                                 Teams
                             </Typography>
                         </TableCell>
                         <TableCell align="center">
-                            <Typography variant="h6" component="div">
+                            <Typography variant="h3" component="div">
                                 Score
                             </Typography>
                         </TableCell>
