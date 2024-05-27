@@ -20,12 +20,11 @@ const DashboardContent: React.FC = () => {
                 height: "100vh",
                 overflow: "auto",
             }}>
-            <Paper
+            <Container
                 sx={{
                     display: "flex",
                     flexDirection: "column",
-                    height: "100vh",
-                    p: 2,
+                    p: 1,
                 }}>
                 <Container>
                     <Typography
@@ -38,14 +37,14 @@ const DashboardContent: React.FC = () => {
                 </Container>
 
                 {res.data && (
-                    <Container sx={{ p: 2 }}>
+                    <Container sx={{ p: 1 }}>
                         <Results result={res.data} />
                     </Container>
                 )}
-                <Container sx={{ p: 2 }}>
+                <Container sx={{ p: 1 }}>
                     <Leaderboard scores={scores.data || []} />
                 </Container>
-            </Paper>
+            </Container>
         </Box>
     )
 }
