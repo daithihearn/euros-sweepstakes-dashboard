@@ -68,10 +68,10 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ scores }) => {
                 {sortedScores.map(score => (
                     <Card
                         sx={{
-                            bgcolor: getColor(
-                                score.totalScore.valueOf(),
-                                darkMode,
-                            ),
+                            // bgcolor: getColor(
+                            //     score.totalScore.valueOf(),
+                            //     darkMode,
+                            // ),
                             borderRadius: 0,
                             p: { xs: 0, sm: 1 },
                         }}
