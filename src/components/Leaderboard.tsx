@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useMemo } from "react"
 import {
     Card,
     Grid,
@@ -16,41 +16,13 @@ interface LeaderboardProps {
     scores: Score[]
 }
 
-const getColor = (value: number, isDarkMode: boolean) => {
-    const max = 32
-    const min = 0
-
-    // Ensure value is within bounds
-    value = Math.max(min, Math.min(max, value))
-
-    const greenValue = Math.floor((value / max) * 255)
-    const redValue = 255 - greenValue
-
-    // Adjust the brightness
-    const brightnessAdjustment = isDarkMode ? -0.3 : 0.4
-
-    const adjustBrightness = (colorComponent: number) => {
-        return Math.max(
-            0,
-            Math.min(
-                255,
-                colorComponent + colorComponent * brightnessAdjustment,
-            ),
-        )
-    }
-
-    const adjustedRedValue = adjustBrightness(redValue)
-    const adjustedGreenValue = adjustBrightness(greenValue)
-    const adjustedBlueValue = adjustBrightness(100)
-
-    return `rgb(${adjustedRedValue}, ${adjustedGreenValue}, ${adjustedBlueValue})`
-}
-
 const Leaderboard: React.FC<LeaderboardProps> = ({ scores }) => {
     const darkMode = useMediaQuery("(prefers-color-scheme: dark)")
 
     // Sort the scores by totalScore in descending order
-    const sortedScores = scores.sort((a, b) => b.totalScore - a.totalScore)
+    const sortedScores = useMemo(() => {
+        return scores.sort((a, b) => b.totalScore - a.totalScore)
+    }, [scores])
 
     return (
         <Card
@@ -62,16 +34,12 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ scores }) => {
             <CardHeader
                 avatar={<Avatar src={Trophy} />}
                 title="Leaderboard"
-                subheader="*The bookies odds will be used until there is a result"
+                subheader="5 points are awarded if you team finished in the top 4 and an additional 3 points if you predicted the correct position. *Until we have a final results the bookies odds will be used to calculate the score."
             />
             <CardContent>
                 {sortedScores.map(score => (
                     <Card
                         sx={{
-                            // bgcolor: getColor(
-                            //     score.totalScore.valueOf(),
-                            //     darkMode,
-                            // ),
                             borderRadius: 0,
                             p: { xs: 0, sm: 1 },
                         }}

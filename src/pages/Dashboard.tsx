@@ -31,11 +31,25 @@ const DashboardContent: React.FC = () => {
 
                 <Container sx={{ p: { xs: 0, sm: 1 } }}>
                     <Grid container spacing={{ xs: 0, sm: 1 }}>
-                        <Grid item xs={12} sm={9} sx={{ p: { xs: 0, sm: 1 } }}>
+                        <Grid
+                            item
+                            xs={12}
+                            sm={9}
+                            sx={{
+                                p: { xs: 0, sm: 1 },
+                                order: { xs: 2, sm: 1 },
+                            }}>
                             <Leaderboard scores={scores.data || []} />
                         </Grid>
 
-                        <Grid item xs={12} sm={3} sx={{ p: { xs: 0, sm: 1 } }}>
+                        <Grid
+                            item
+                            xs={12}
+                            sm={3}
+                            sx={{
+                                p: { xs: 0, sm: 1 },
+                                order: { xs: 1, sm: 2 },
+                            }}>
                             {res.data && <Results result={res.data} />}
                         </Grid>
                     </Grid>
