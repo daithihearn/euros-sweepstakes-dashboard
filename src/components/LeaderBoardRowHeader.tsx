@@ -13,17 +13,17 @@ const LeaderBoardRowHeader = ({
         <Box sx={{ p: 1 }}>
             <Stack
                 direction="row"
-                justifyContent="evenly"
+                justifyContent="space-between"
                 alignItems="center"
                 spacing={1}>
+                <Stack direction="column">
+                    <Typography variant="h3">{title}</Typography>
+                </Stack>
                 <Avatar
                     variant="rounded"
                     sx={{ backgroundColor: `${darkMode ? "white" : "black"}` }}>
                     <Typography variant="h1">{score}</Typography>
                 </Avatar>
-                <Stack direction="column">
-                    <Typography variant="h3">{title}</Typography>
-                </Stack>
             </Stack>
         </Box>
     )
