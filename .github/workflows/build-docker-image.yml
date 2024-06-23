@@ -1,0 +1,16 @@
+name: Build Docker image
+
+on:
+    workflow_dispatch:
+    pull_request:
+        branches: ["main"]
+
+jobs:
+    build:
+        name: Build docker image
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v3
+            - name: Build the Docker image
+              run: docker build --build-arg REACT_APP_API_URL=${{ secrets.REACT_APP_API_URL }} --target builder -t react-app .
